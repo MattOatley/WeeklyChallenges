@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,8 +8,7 @@ namespace ChallengesWithTestsMark8
     {
         public bool CharacterIsALetter(char c)
         {
-            var result = Char.IsLetter(c);
-            return result;
+            return Char.IsLetter(c);
             
         }
 
@@ -50,12 +50,26 @@ namespace ChallengesWithTestsMark8
 
         public double SumOfMinAndMax(IEnumerable<double> numbers)
         {
-            throw new NotImplementedException();
+            if (numbers == null || numbers.Count() == 0)
+            {
+                return 0;
+            }
+            else
+            {
+                return numbers.Max() + numbers.Min();
+            }
         }
 
         public int GetLengthOfShortestString(string str1, string str2)
         {
-            throw new NotImplementedException();
+            if(str1.Length > str2.Length)
+            {
+                return str2.Length;
+            }
+            else
+            {
+                return str1.Length;
+            }
         }
 
         public int Sum(int[] numbers)
@@ -94,6 +108,20 @@ namespace ChallengesWithTestsMark8
         public bool IsSumOdd(List<int> numbers)
         {
             
+            int result = numbers.Sum();
+            
+            if(numbers == null)
+            {
+                return false;
+            }
+            else if (result % 2 == 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
         public long CountOfPositiveOddsBelowNumber(long number)
