@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ChallengesWithTestsMark8
 {
@@ -7,7 +8,27 @@ namespace ChallengesWithTestsMark8
     {
         public bool ArrayContainsAFalse(bool[] vals)
         {
-            throw new NotImplementedException();
+            bool containsFalse = false;
+            for (int j = 0; j < vals.Length; j++)
+            {
+                //if the current element the array is equals to false, then containsFalse is true,
+                //then exit for loop
+                if (vals[j] == false)
+                {
+                    containsFalse = true;
+                    break;
+                    
+                }
+            }
+
+            if (containsFalse)
+            {
+                //your array contains a false then.
+                return true;
+            }
+            return false;
+
+
         }
 
         public bool IsSumOfOddsOdd(IEnumerable<int> numbers)
@@ -17,22 +38,39 @@ namespace ChallengesWithTestsMark8
 
         public bool PasswordContainsUpperLowerAndNumber(string password)
         {
-            throw new NotImplementedException();
+            if (password.Any(char.IsUpper) && password.Any(char.IsLower) && password.Any(char.IsDigit))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public char GetFirstLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            return val.ToCharArray()[0];
         }
 
         public char GetLastLetterOfString(string val)
         {
-            throw new NotImplementedException();
+            char last = val[val.Length - 1];
+            return last;
         }
 
         public decimal Divide(decimal dividend, decimal divisor)
         {
-            throw new NotImplementedException();
+            if (dividend == 0 && divisor == 0)
+            {
+                return 0;
+                
+            }
+            else
+            {
+                return dividend / divisor;
+            }
+            
         }
 
         public int LastMinusFirst(int[] nums)
@@ -47,7 +85,8 @@ namespace ChallengesWithTestsMark8
 
         public void ChangeAllElementsToUppercase(string[] words)
         {
-            throw new NotImplementedException();
+            words = Array.ConvertAll(words, s => s.ToUpper());
+            
         }
     }
 }
